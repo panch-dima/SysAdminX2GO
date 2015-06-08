@@ -60,9 +60,8 @@ void MainWindow::waitFinishProcess()
 }
 void MainWindow::contextMenuUser(QPoint pos)
 {
-
+        qDebug()<<pos<<"pos";
         QModelIndex index=ui->tableWidget->indexAt(pos);
-        qDebug()<<pos;
         QMenu *menu=new QMenu(this);//Контекстное меню)
         menu->addAction("Suspend", this, SLOT(SuspendSession()));
         menu->addAction("2", this, SLOT(two()));
