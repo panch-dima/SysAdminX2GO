@@ -85,14 +85,16 @@ void MainWindow::contextMenuUser(QPoint pos)
 void MainWindow::SuspendSession()
 {
     QProcess * suspend = new QProcess();
-    suspend->arguments(SessionId);
-    suspend->start("x2gosuspend-session");
+    QStringList arg;
+    arg<< SessionId;
+    suspend->start("x2gosuspend-session",arg);
 }
 void MainWindow::TerminateSession()
 {
     QProcess * terminate = new QProcess();
-    terminate->arguments(SessionId);
-    terminate->start("x2goterminate-session");
+    QStringList arg;
+    arg<< SessionId;
+    terminate->start("x2goterminate-session",arg);
 }
 void MainWindow::free()
 {
