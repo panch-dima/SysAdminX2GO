@@ -65,16 +65,16 @@ void MainWindow::contextMenuUser(QPoint pos)
         QModelIndex indextwo;
         QVariant tabledata;
         QMenu *menu=new QMenu(this);//Контекстное меню)
-        menu->addAction("Распечатать", this, SLOT(PrintList()));
-        menu->addAction("Добавить анализ(Тестовая функция)", this, SLOT(OutIndex2()));
-        menu->addAction("3", this, SLOT(OutIndex3()));
+        menu->addAction("Suspend", this, SLOT(SuspendSession()));
+        menu->addAction("Terminate", this, SLOT(TerminateSession()));
+        menu->addAction("No Work", this, SLOT(OutIndex3()));
         menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
 
 
 }
 void MainWindow::SuspendSession()
 {
-qDebug()<<"no work";
+
 }
 void MainWindow::two()
 {

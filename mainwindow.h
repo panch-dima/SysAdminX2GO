@@ -25,7 +25,7 @@ public slots:
     void waitFinishProcess();
     void contextMenuUser(QPoint pos);
     void SuspendSession();
-    void two();
+    void TerminateSession();
     void free();
 };
 
