@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
+
 }
 MainWindow::~MainWindow()
 {
@@ -56,7 +57,7 @@ void MainWindow::waitFinishProcess()
     i++;
     }
     i=0;
-    connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
+
 }
 void MainWindow::contextMenuUser(QPoint pos)
 {
