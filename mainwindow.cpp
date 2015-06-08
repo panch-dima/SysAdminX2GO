@@ -10,6 +10,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     refreshusers();
     ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
+    QTableWidgetItem * headitem_timedate = new QTableWidgetItem();
+    QTableWidgetItem * headitem_host = new QTableWidgetItem();
+    QTableWidgetItem * headitem_nameclient = new QTableWidgetItem();
+    QTableWidgetItem * headitem_sessionid = new QTableWidgetItem();
+    ui->tableWidget->setHorizontalHeaderItem(0,headitem_timedate);
+    ui->tableWidget->setHorizontalHeaderItem(0,headitem_host);
+    ui->tableWidget->setHorizontalHeaderItem(0,headitem_nameclient);
+    ui->tableWidget->setHorizontalHeaderItem(0,headitem_sessionid);
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 
@@ -44,16 +52,18 @@ void MainWindow::waitFinishProcess()
     QTableWidgetItem * timeconnect = new QTableWidgetItem();
     QTableWidgetItem * host = new QTableWidgetItem();
     QTableWidgetItem * nameclient = new QTableWidgetItem();
+    QTableWidgetItem * sessionid = new QTableWidgetItem();
     QList <QString> itemproc = process[i].split("|");
     qDebug()<<itemproc[5]<<itemproc[7]<<itemproc[11];
     timeconnect->setText(itemproc[5]);
     host->setText(itemproc[7]);
     nameclient->setText(itemproc[11]);
+    sessionid->setText(itemproc[1]);
     ui->tableWidget->insertRow(i);
     ui->tableWidget->setItem(i,0,timeconnect);
     ui->tableWidget->setItem(i,1,host);
     ui->tableWidget->setItem(i,2,nameclient);
-
+    ui->tableWidget->setItem(i,3,sessionid);
     i++;
     }
     i=0;
