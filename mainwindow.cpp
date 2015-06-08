@@ -67,7 +67,7 @@ void MainWindow::contextMenuUser(QPoint pos)
         menu->addAction("Suspend", this, SLOT(SuspendSession()));
         menu->addAction("2", this, SLOT(two()));
         menu->addAction("3", this, SLOT(free()));
-        menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos);
+        menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
 
 
 }
