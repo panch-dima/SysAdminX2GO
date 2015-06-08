@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshusers();
-
+    ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 }
@@ -64,9 +64,6 @@ void MainWindow::contextMenuUser(QPoint pos)
         QModelIndex index=ui->tableWidget->indexAt(pos);
         QModelIndex indextwo;
         QVariant tabledata;
-        indextwo = ui->tableWidget->model()->index(index.row(),0,QModelIndex());
-        tabledata = ui->tableWidget->model()->data(indextwo,Qt::DisplayRole);
-        int x=tabledata.toString();
         QMenu *menu=new QMenu(this);//Контекстное меню)
         menu->addAction("Распечатать", this, SLOT(PrintList()));
         menu->addAction("Добавить анализ(Тестовая функция)", this, SLOT(OutIndex2()));
