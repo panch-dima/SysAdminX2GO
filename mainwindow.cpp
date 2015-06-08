@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     refreshusers();
     ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Prueba"));
+
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 
@@ -60,7 +60,7 @@ void MainWindow::waitFinishProcess()
     i++;
     }
     i=0;
-
+    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Prueba"));
 }
 void MainWindow::contextMenuUser(QPoint pos)
 {
@@ -71,7 +71,7 @@ void MainWindow::contextMenuUser(QPoint pos)
         QMenu *menu=new QMenu(this);//Контекстное меню)
         menu->addAction("Suspend", this, SLOT(SuspendSession()));
         menu->addAction("Terminate", this, SLOT(TerminateSession()));
-        menu->addAction("No Work", this, SLOT(OutIndex3()));
+        menu->addAction("No Work", this, SLOT(free()));
         menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
 
 
