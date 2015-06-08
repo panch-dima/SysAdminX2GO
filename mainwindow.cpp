@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     refreshusers();
 
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
-    //connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
+    connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 }
 MainWindow::~MainWindow()
 {
