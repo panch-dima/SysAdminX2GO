@@ -56,16 +56,21 @@ void MainWindow::waitFinishProcess()
     i++;
     }
     i=0;
-
+    connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 }
 void MainWindow::contextMenuUser(QPoint pos)
 {
         qDebug()<<pos<<"pos";
         QModelIndex index=ui->tableWidget->indexAt(pos);
+        QModelIndex indextwo;
+        QVariant tabledata;
+        indextwo = ui->tableWidget->model()->index(index.row(),0,QModelIndex());
+        tabledata = ui->tableWidget->model()->data(indextwo,Qt::DisplayRole);
+        int x=tabledata.toString();
         QMenu *menu=new QMenu(this);//Контекстное меню)
-        menu->addAction("Suspend", this, SLOT(SuspendSession()));
-        menu->addAction("2", this, SLOT(two()));
-        menu->addAction("3", this, SLOT(free()));
+        menu->addAction("Распечатать", this, SLOT(PrintList()));
+        menu->addAction("Добавить анализ(Тестовая функция)", this, SLOT(OutIndex2()));
+        menu->addAction("3", this, SLOT(OutIndex3()));
         menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
 
 
