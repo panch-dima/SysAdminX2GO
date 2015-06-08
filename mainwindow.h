@@ -20,9 +20,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
+public slots:
     void refreshusers();
     void waitFinishProcess();
-    void contextMenuUser();
+    void contextMenuUser(QPoint pos);
+    void SuspendSession();
 };
 
 #endif // MAINWINDOW_H

@@ -26,6 +26,7 @@ void MainWindow::refreshusers()
         ui->tableWidget->removeRow(0);
     }
     connect(whois,SIGNAL(finished(int)),SLOT(waitFinishProcess()));
+
 }
 void MainWindow::waitFinishProcess()
 {
@@ -55,5 +56,21 @@ void MainWindow::waitFinishProcess()
     i++;
     }
     i=0;
+
+}
+void MainWindow::contextMenuUser(QPoint pos)
+{
+
+        QModelIndex index=ui->tableWidget->indexAt(pos);
+
+        QMenu *menu=new QMenu(this);//Контекстное меню)
+        menu->addAction("Suspend", this, SLOT(SuspendSession()));
+        menu->addAction("2", this, SLOT(OutIndex2()));
+        menu->addAction("3", this, SLOT(OutIndex3()));
+        menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
+
+}
+void MainWindow::SuspendSession()
+{
 
 }
