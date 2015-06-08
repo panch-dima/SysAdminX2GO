@@ -69,11 +69,7 @@ void MainWindow::waitFinishProcess()
 void MainWindow::contextMenuUser(QPoint pos)
 {
         QModelIndex index=ui->tableWidget->indexAt(pos);
-        QModelIndex indextwo;
-        QVariant tabledata;
-        indextwo = ui->tableWidget->model()->index(index.row(),3,QModelIndex());
-        tabledata = ui->tableWidget->data(indextwo,Qt::DisplayRole);
-        SessionId=tabledata.toString();
+        SessionId=ui->tableWidget->item(index.row(),3)->text();
         QMenu *menu=new QMenu(this);//Контекстное меню)
         menu->addAction("Suspend", this, SLOT(SuspendSession()));
         menu->addAction("Terminate", this, SLOT(TerminateSession()));
