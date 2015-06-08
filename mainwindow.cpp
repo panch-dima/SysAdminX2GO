@@ -76,7 +76,7 @@ void MainWindow::SuspendSession()
 {
 
 }
-void MainWindow::two()
+void MainWindow::TerminateSession()
 {
 
 }
