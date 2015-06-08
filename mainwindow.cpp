@@ -60,7 +60,11 @@ void MainWindow::waitFinishProcess()
     i++;
     }
     i=0;
-    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Prueba"));
+    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Date/Time"));
+    ui->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Host"));
+    ui->tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Username"));
+    ui->tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("SessionID"));
+
 }
 void MainWindow::contextMenuUser(QPoint pos)
 {
