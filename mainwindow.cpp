@@ -15,9 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QTableWidgetItem * headitem_nameclient = new QTableWidgetItem();
     QTableWidgetItem * headitem_sessionid = new QTableWidgetItem();
     ui->tableWidget->setHorizontalHeaderItem(0,headitem_timedate);
-    ui->tableWidget->setHorizontalHeaderItem(0,headitem_host);
-    ui->tableWidget->setHorizontalHeaderItem(0,headitem_nameclient);
-    ui->tableWidget->setHorizontalHeaderItem(0,headitem_sessionid);
+    ui->tableWidget->setHorizontalHeaderItem(1,headitem_host);
+    ui->tableWidget->setHorizontalHeaderItem(2,headitem_nameclient);
+    ui->tableWidget->setHorizontalHeaderItem(3,headitem_sessionid);
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 
