@@ -10,14 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     refreshusers();
     ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-    QTableWidgetItem * headitem_timedate = new QTableWidgetItem();
-    QTableWidgetItem * headitem_host = new QTableWidgetItem();
-    QTableWidgetItem * headitem_nameclient = new QTableWidgetItem();
-    QTableWidgetItem * headitem_sessionid = new QTableWidgetItem();
-    ui->tableWidget->setHorizontalHeaderItem(0,headitem_timedate);
-    ui->tableWidget->setHorizontalHeaderItem(1,headitem_host);
-    ui->tableWidget->setHorizontalHeaderItem(2,headitem_nameclient);
-    ui->tableWidget->setHorizontalHeaderItem(3,headitem_sessionid);
+    ui->tableWidget->setHorizontalHeaderItem(0, new QTableWidgetItem("Prueba"));
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 
