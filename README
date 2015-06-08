@@ -3,5 +3,7 @@ $qmake
 $make
 ##########Started##########
 $sudo ./SysAdminX2GO
+or 
+#./SysAdminX2GO
 
 
