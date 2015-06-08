@@ -1,1 +1,6 @@
-	
+##########Instaled#########	
+$make
+##########Started##########
+$sudo ./SysAdminX2GO
+
+
