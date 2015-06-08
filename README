@@ -1,4 +1,5 @@
 ##########Instaled#########	
+$qmake
 $make
 ##########Started##########
 $sudo ./SysAdminX2GO

@@ -25,6 +25,8 @@ public slots:
     void waitFinishProcess();
     void contextMenuUser(QPoint pos);
     void SuspendSession();
+    void two();
+    void free();
 };
 
 #endif // MAINWINDOW_H

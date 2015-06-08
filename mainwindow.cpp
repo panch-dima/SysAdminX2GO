@@ -62,15 +62,23 @@ void MainWindow::contextMenuUser(QPoint pos)
 {
 
         QModelIndex index=ui->tableWidget->indexAt(pos);
-
+        qDebug()<<pos;
         QMenu *menu=new QMenu(this);//Контекстное меню)
         menu->addAction("Suspend", this, SLOT(SuspendSession()));
-        menu->addAction("2", this, SLOT(OutIndex2()));
-        menu->addAction("3", this, SLOT(OutIndex3()));
-        menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
+        menu->addAction("2", this, SLOT(two()));
+        menu->addAction("3", this, SLOT(free()));
+        menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos)
 
 }
 void MainWindow::SuspendSession()
+{
+
+}
+void MainWindow::two()
+{
+
+}
+void MainWindow::free()
 {
 
 }
