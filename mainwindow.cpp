@@ -101,7 +101,7 @@ void MainWindow::ControlSession()
     QProcess * startcontrol = new QProcess();
     QProcess * vncstart = new QProcess();
     setdisplay->start("DISPLAY=:"+DisplayId);
-    startcontrol->start("su"+UserName+"-c /home/don/SysAdminX2GO/usercontrol/usercontrol");
+    startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
     setdisplay->start("DISPLAY=:0");
     vncstart->start("vncviewer 127.0.0.1:5900");
 
