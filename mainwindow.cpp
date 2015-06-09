@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include <QHeaderView>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -9,8 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     refreshusers();
-    ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
-
+    QTableWidget * ConnectTable = ui->tableWidget;
+    ConnectTable->setContextMenuPolicy(Qt::CustomContextMenu);
+    ConnectTable->horizontalHeader()->resizeMode(QHeaderView::Stretch);
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 
