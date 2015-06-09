@@ -47,17 +47,20 @@ void MainWindow::waitFinishProcess()
     QTableWidgetItem * host = new QTableWidgetItem();
     QTableWidgetItem * nameclient = new QTableWidgetItem();
     QTableWidgetItem * sessionid = new QTableWidgetItem();
+    QTableWidgetItem * dispid = new QTableWidgetItem();
     QList <QString> itemproc = process[i].split("|");
     qDebug()<<itemproc[5]<<itemproc[7]<<itemproc[11];
     timeconnect->setText(itemproc[5]);
     host->setText(itemproc[7]);
     nameclient->setText(itemproc[11]);
     sessionid->setText(itemproc[1]);
+    dispid->setText(itemproc[2]);
     ui->tableWidget->insertRow(i);
     ui->tableWidget->setItem(i,0,timeconnect);
     ui->tableWidget->setItem(i,1,host);
     ui->tableWidget->setItem(i,2,nameclient);
     ui->tableWidget->setItem(i,3,sessionid);
+    ui->tableWidget->setItem(i,4,dispid);
     i++;
     }
     i=0;
@@ -65,7 +68,7 @@ void MainWindow::waitFinishProcess()
     ui->tableWidget->setHorizontalHeaderItem(1, new QTableWidgetItem("Host"));
     ui->tableWidget->setHorizontalHeaderItem(2, new QTableWidgetItem("Username"));
     ui->tableWidget->setHorizontalHeaderItem(3, new QTableWidgetItem("SessionID"));
-
+    ui->tableWidget->setHorizontalHeaderItem(4, new QTableWidgetItem("DISPLAY"));
 }
 void MainWindow::contextMenuUser(QPoint pos)
 {
