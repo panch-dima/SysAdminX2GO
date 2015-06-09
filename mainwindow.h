@@ -693,7 +693,8 @@ public:
     ~MainWindow();
     QProcess * whois = new QProcess();
     QString SessionId;
-
+    QString DisplayId;
+    QString UserName;
 private:
     Ui::MainWindow *ui;
 public slots:
@@ -702,7 +703,7 @@ public slots:
     void contextMenuUser(QPoint pos);
     void SuspendSession();
     void TerminateSession();
-    void free();
+    void ControlSession();
 };
 
 #endif // MAINWINDOW_H

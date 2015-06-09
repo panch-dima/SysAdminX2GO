@@ -71,10 +71,12 @@ void MainWindow::contextMenuUser(QPoint pos)
 {
         QModelIndex index=ui->tableWidget->indexAt(pos);
         SessionId=ui->tableWidget->item(index.row(),3)->text();
+        DisplayId=ui->tableWidget->item(index.row(),4)->text();
+        UserName=ui->tableWidget->item(index.row(),2)->text();
         QMenu *menu=new QMenu(this);//Контекстное меню)
         menu->addAction("Suspend", this, SLOT(SuspendSession()));
         menu->addAction("Terminate", this, SLOT(TerminateSession()));
-        menu->addAction("No Work", this, SLOT(free()));
+        menu->addAction("Control", this, SLOT(ControlSession()));
         menu->popup(ui->tableWidget->viewport()->mapToGlobal(pos));
 
 
@@ -93,7 +95,14 @@ void MainWindow::TerminateSession()
     arg<< SessionId;
     terminate->start("x2goterminate-session",arg);
 }
-void MainWindow::free()
+void MainWindow::ControlSession()
 {
+    QProcess * setdisplay = new QProcess();
+    QProcess * startcontrol = new QProcess();
+    QProcess * vncstart = new QProcess();
+    setdisplay->start("DISPLAY=:"+DisplayId);
+    startcontrol->start("su"+UserName+"-c /home/don/SysAdminX2GO/usercontrol/usercontrol");
+    setdisplay->start("DISPLAY=:0");
+    vncstart->start("vncviewer 127.0.0.1:5900");
 
 }
