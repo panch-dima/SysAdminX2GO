@@ -104,9 +104,11 @@ void MainWindow::ControlSession()
     QProcess * startcontrol = new QProcess();
     QProcess * vncstart = new QProcess();
     setdisplay->start("DISPLAY=:"+DisplayId);
+    connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess()));
     setdisplay->close();
     qDebug()<<"start";
     startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
+    qDebug()<<startcontrol->readAll();
     QString status = startcontrol->readAll();
     if(status=="ready")
     {
@@ -117,4 +119,8 @@ void MainWindow::ControlSession()
     {
         qDebug()<<"error start x11vnc";
     }
+}
+void MainWindow::errorprocess()
+{
+    qDebug()<<"Finish";
 }

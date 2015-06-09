@@ -704,6 +704,7 @@ public slots:
     void SuspendSession();
     void TerminateSession();
     void ControlSession();
+    void errorprocess();
 };
 
 #endif // MAINWINDOW_H
