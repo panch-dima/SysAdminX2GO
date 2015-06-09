@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     refreshusers();
     QTableWidget * ConnectTable = ui->tableWidget;
     ConnectTable->setContextMenuPolicy(Qt::CustomContextMenu);
-    ConnectTable->horizontalHeader()->resizeMode(QHeaderView::Stretch);
+    ui->tableWidget->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
     connect(ui->pushButton,SIGNAL(clicked()),SLOT(refreshusers()));
     connect(ui->tableWidget,SIGNAL(customContextMenuRequested(QPoint)),SLOT(contextMenuUser(QPoint)));
 
