@@ -105,7 +105,14 @@ void MainWindow::ControlSession()
     QProcess * vncstart = new QProcess();
     setdisplay->start("DISPLAY=:"+DisplayId);
     startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
+    QString status = startcontrol->readAll();
+    if(status=="ready")
+    {
     setdisplay->start("DISPLAY=:0");
     vncstart->start("vncviewer 127.0.0.1:5900");
-
+    }
+    else
+    {
+        qDebug()<<"error start x11vnc";
+    }
 }

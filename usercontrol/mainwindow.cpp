@@ -19,19 +19,21 @@ void MainWindow::rc_proc()
     ui->pushButton_RC->setEnabled(false);
     ui->pushButton_VO->setEnabled(false);
     QProcess * rc = new QProcess();
-
-
-    rc->start("x11vnc");
-    connect(rc,SIGNAL(finished(int)),SLOT(close()));
+    QStringList arg;
+    arg<<"-localhost";
+    rc->start("x11vnc",arg);
+    MainWindow::hide();
+    qDebug()<<"ready ";
 }
 void MainWindow::vo_proc()
 {
     ui->pushButton_RC->setEnabled(false);
     ui->pushButton_VO->setEnabled(false);
-    MainWindow::hide();
+
     QProcess * vo = new QProcess();
     QStringList arg;
-    arg << "-viewonly";
+    arg << "-viewonly -localhost";
     vo->start("x11vnc",arg);
-    connect(vo,SIGNAL(finished(int)),SLOT(close()));
+    MainWindow::hide();
+    qDebug()<<"ready";
 }
