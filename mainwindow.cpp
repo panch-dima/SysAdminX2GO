@@ -33,7 +33,7 @@ void MainWindow::refreshusers()
 }
 void MainWindow::waitFinishProcess()
 {
-    ui->tableWidget->setColumnCount(4);
+    ui->tableWidget->setColumnCount(5);
     QList <QString> process;
     QString proc = whois->readAll();
     process = proc.split("\n");
