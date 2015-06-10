@@ -101,7 +101,7 @@ void MainWindow::TerminateSession()
 void MainWindow::ControlSession()
 {
     QProcess * setdisplay = new QProcess();
-    QProcess * startcontrol = new QProcess();
+    //QProcess * startcontrol = new QProcess();
     //QProcess * vncstart = new QProcess();
     QStringList arg;
     arg <<"DISPLAY=:"<< DisplayId<<" su "<<UserName<<" -c /home/dima/SysAdminX2GO/usercontrol/usercontrol";
