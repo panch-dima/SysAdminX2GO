@@ -114,12 +114,11 @@ void MainWindow::errorprocess(int ErrorCode)
 {
     qDebug()<<"Finish"<<ErrorCode;
     QProcess * vncstart = new QProcess();
-    QStringList arg;
-    arg<<"127.0.0.1:5900";
+
     qDebug()<<Status;
     if(Status=="ready")
     {
-        vncstart->start("vncviewer",arg);
+        vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
         Status="";
     }
     else
