@@ -116,6 +116,7 @@ void MainWindow::ControlSession()
         {
             continue;
         }
+        i++;
     }
 }
 void MainWindow::errorprocess()
