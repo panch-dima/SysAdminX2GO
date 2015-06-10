@@ -694,6 +694,7 @@ public:
     ~MainWindow();
     QProcess * whois = new QProcess();
     QProcess * connectuser = new QProcess();
+    QTimer * waituser;
     QString SessionId;
     QString DisplayId;
     QString UserName;
