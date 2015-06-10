@@ -98,23 +98,17 @@ void MainWindow::TerminateSession()
 }
 void MainWindow::ControlSession()
 {
-    QProcess * setdisplay = new QProcess();
-    QProcess * vncstart = new QProcess();
     QStringList arg;
     arg <<DisplayId<<UserName;
-    setdisplay->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
-    Status = setdisplay->readAll();
-
-    connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
-    qDebug()<<Status;
-
+    connectuser->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
+    connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess(int)));
 
 }
 void MainWindow::errorprocess(int ErrorCode)
 {
     qDebug()<<"Finish"<<ErrorCode;
     QProcess * vncstart = new QProcess();
-
+    Status = connectuser->readAll();
     qDebug()<<Status;
     if(Status=="ready")
     {

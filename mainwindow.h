@@ -692,6 +692,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QProcess * whois = new QProcess();
+    QProcess * connectuser = new QProcess();
     QString SessionId;
     QString DisplayId;
     QString UserName;
