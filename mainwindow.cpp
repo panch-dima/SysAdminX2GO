@@ -118,7 +118,7 @@ void MainWindow::ControlSession()
         }
     }
 }
-void MainWindow::errorprocess(int ErrorCode)
+void MainWindow::errorprocess()
 {
     qDebug()<<"Finish"<<ErrorCode;
     QProcess * vncstart = new QProcess();
