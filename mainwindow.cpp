@@ -113,6 +113,7 @@ void MainWindow::ControlSession()
 void MainWindow::errorprocess(int ErrorCode)
 {
     qDebug()<<"Finish"<<ErrorCode;
+    QProcess * vncstart = new QProcess();
     if(Status=="ready")
     {
         vncstart->start("/usr/bin/vncviewer 127.0.0.1:5900");
