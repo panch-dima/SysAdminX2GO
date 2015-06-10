@@ -106,7 +106,7 @@ void MainWindow::ControlSession()
     Status = setdisplay->readAll();
 
     connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
-    qDebug()<<"start"<<arg;
+    qDebug()<<Status;
 
 
 }
