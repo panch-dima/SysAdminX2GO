@@ -102,7 +102,7 @@ void MainWindow::ControlSession()
     int i=0;
     arg <<DisplayId<<UserName;
     connectuser->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
-    connect(connectuser,SIGNAL(readyRead()),SLOT(readprocess()));
+    readprocess();
     //connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess(int)));
 
 }
