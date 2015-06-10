@@ -110,18 +110,12 @@ void MainWindow::readprocess()
 {
     QTimer * waituser;
     connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
-    waituser->start(1000);
-    qDebug()<<timeri;
+    waituser->start(30000);
+
 }
 void MainWindow::whatprocess()
 {
     qDebug()<<connectuser->readAll();
-    if (timeri==60)
-    {
-        errorprocess();
-    }
-    timeri++;
-    readprocess();
 
 }
 
@@ -131,13 +125,6 @@ void MainWindow::errorprocess()
     QProcess * vncstart = new QProcess();
     Status = connectuser->readAll();
     qDebug()<<Status;
-    if(Status=="ready")
-    {
-        vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
-        Status="";
-    }
-    else
-    {
-        qDebug()<<"error start x11vnc";
-    }
+    vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
+    Status="";
 }

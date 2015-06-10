@@ -698,7 +698,7 @@ public:
     QString DisplayId;
     QString UserName;
     QString Status;
-    int timeri=0;
+    int timeri;
 private:
     Ui::MainWindow *ui;
 public slots:
