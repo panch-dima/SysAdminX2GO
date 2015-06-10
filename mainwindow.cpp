@@ -103,6 +103,7 @@ void MainWindow::ControlSession()
     QStringList arg;
     arg <<DisplayId<<UserName;
     setdisplay->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
+    QString status = setdisplay->readAll();
     if(status=="ready")
     {
         vncstart->start("vncviewer 127.0.0.1:5900");
