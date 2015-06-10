@@ -695,6 +695,7 @@ public:
     QString SessionId;
     QString DisplayId;
     QString UserName;
+    QString Status;
 private:
     Ui::MainWindow *ui;
 public slots:

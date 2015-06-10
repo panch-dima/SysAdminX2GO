@@ -103,15 +103,8 @@ void MainWindow::ControlSession()
     QStringList arg;
     arg <<DisplayId<<UserName;
     setdisplay->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
-    QString status = setdisplay->readAll();
-    if(status=="ready")
-    {
-        vncstart->start("vncviewer 127.0.0.1:5900");
-    }
-    else
-    {
-        qDebug()<<"error start x11vnc";
-    }
+    Status = setdisplay->readAll();
+
     connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
     qDebug()<<"start"<<arg;
 
@@ -120,4 +113,12 @@ void MainWindow::ControlSession()
 void MainWindow::errorprocess(int ErrorCode)
 {
     qDebug()<<"Finish"<<ErrorCode;
+    if(Status=="ready")
+    {
+        vncstart->start("/usr/bin/vncviewer 127.0.0.1:5900");
+    }
+    else
+    {
+        qDebug()<<"error start x11vnc";
+    }
 }
