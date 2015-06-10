@@ -29,7 +29,7 @@ void MainWindow::rc_proc()
     time->start(10000);
     connect(time,SIGNAL(timeout()),SLOT(state()));
     rc->startDetached("x11vnc",arg);
-    state();
+
 
 
 }
@@ -41,9 +41,11 @@ void MainWindow::vo_proc()
     QProcess * vo = new QProcess();
     QStringList arg;
     arg << "-viewonly -localhost";
+    QTimer * time = new QTimer;
+    time->start(10000);
+    connect(time,SIGNAL(timeout()),SLOT(state()));
     vo->startDetached("x11vnc",arg);
-    qDebug()<<"ready";
-    exit(0);
+
 }
 
 void MainWindow::state()
