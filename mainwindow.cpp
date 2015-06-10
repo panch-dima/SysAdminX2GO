@@ -103,7 +103,7 @@ void MainWindow::ControlSession()
     //QProcess * vncstart = new QProcess();
     QStringList arg;
     arg <<"DISPLAY=:"<< DisplayId<<" su "<<UserName<<" -c /home/dima/SysAdminX2GO/usercontrol/usercontrol";
-    setdisplay->start("/bin/bash/",arg);
+    setdisplay->start("",arg);
     connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
     qDebug()<<"start";
     //startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
