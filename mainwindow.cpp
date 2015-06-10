@@ -37,7 +37,6 @@ void MainWindow::waitFinishProcess()
     QList <QString> process;
     QString proc = whois->readAll();
     process = proc.split("\n");
-    qDebug()<<process;
     whois->close();
     whois->disconnect();
     int i=0;
@@ -49,7 +48,6 @@ void MainWindow::waitFinishProcess()
     QTableWidgetItem * sessionid = new QTableWidgetItem();
     QTableWidgetItem * dispid = new QTableWidgetItem();
     QList <QString> itemproc = process[i].split("|");
-    qDebug()<<itemproc[5]<<itemproc[7]<<itemproc[11];
     timeconnect->setText(itemproc[5]);
     host->setText(itemproc[7]);
     nameclient->setText(itemproc[11]);
@@ -106,8 +104,7 @@ void MainWindow::ControlSession()
     QStringList arg;
     arg <<"DISPLAY=:"<< DisplayId<<" su "<<UserName<<" -c /home/dima/SysAdminX2GO/usercontrol/usercontrol";
     setdisplay->start("/bin/bash/",arg);
-    qDebug()<<setdisplay->exitStatus();
-    connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess()));
+    connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
     qDebug()<<"start";
     //startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
     //qDebug()<<startcontrol->readAll();
@@ -122,7 +119,7 @@ void MainWindow::ControlSession()
     //    qDebug()<<"error start x11vnc";
     //}
 }
-void MainWindow::errorprocess()
+void MainWindow::errorprocess(int ErrorCode)
 {
-    qDebug()<<"Finish";
+    qDebug()<<"Finish"<<ErrorCode;
 }
