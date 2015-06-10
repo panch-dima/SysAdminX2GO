@@ -102,7 +102,6 @@ void MainWindow::ControlSession()
     int i=0;
     arg <<DisplayId<<UserName;
     connectuser->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
-    qDebug()<<connectuser->readAll();
     //readprocess();
     connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess()));
 
@@ -113,9 +112,9 @@ void MainWindow::errorprocess()
 {
     qDebug()<<connectuser->readAll();
     qDebug()<<"Finish";
-    //QProcess * vncstart = new QProcess();
+    QProcess * vncstart = new QProcess();
     Status = connectuser->readAll();
     qDebug()<<Status;
-    //vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
-    //Status="";
+    vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
+    Status="";
 }
