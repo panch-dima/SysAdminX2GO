@@ -111,6 +111,7 @@ void MainWindow::readprocess()
     QTimer * waituser;
     connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
     waituser->start(1000);
+    qDebug()<<timeri;
 }
 void MainWindow::whatprocess()
 {
@@ -120,6 +121,7 @@ void MainWindow::whatprocess()
         errorprocess();
     }
     timeri++;
+    readprocess();
 
 }
 
