@@ -120,7 +120,7 @@ void MainWindow::ControlSession()
 }
 void MainWindow::errorprocess()
 {
-    qDebug()<<"Finish"<<ErrorCode;
+    qDebug()<<"Finish";
     QProcess * vncstart = new QProcess();
     Status = connectuser->readAll();
     qDebug()<<Status;
