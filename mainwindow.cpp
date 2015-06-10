@@ -109,8 +109,9 @@ void MainWindow::ControlSession()
 void MainWindow::readprocess()
 {
     QTimer * waituser;
-    connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
     waituser->start(30000);
+    connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
+
 
 }
 void MainWindow::whatprocess()
