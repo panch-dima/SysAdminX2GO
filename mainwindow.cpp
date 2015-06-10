@@ -102,23 +102,27 @@ void MainWindow::ControlSession()
     int i=0;
     arg <<DisplayId<<UserName;
     connectuser->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
+    connect(connectuser,SIGNAL(readyRead()),SLOT(readprocess()));
     //connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess(int)));
-    QTimer * waituser;
-    while(i<=30)
-    {
-        waituser->start(1000);
-        qDebug()<<connectuser->readAll();
-        if(connectuser->readAll()=="ready")
-        {
-            errorprocess();
-        }
-        else
-        {
-            continue;
-        }
-        i++;
-    }
+
 }
+void MainWindow::readprocess()
+{
+    QTimer * waituser;
+    connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
+    waituser->start(1000);
+}
+void MainWindow::whatprocess()
+{
+    qDebug()<<connectuser->read();
+    if (timeri==60)
+    {
+        errorprocess();
+    }
+    timeri++;
+
+}
+
 void MainWindow::errorprocess()
 {
     qDebug()<<"Finish";

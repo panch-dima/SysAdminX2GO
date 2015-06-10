@@ -698,6 +698,7 @@ public:
     QString DisplayId;
     QString UserName;
     QString Status;
+    int timeri=0;
 private:
     Ui::MainWindow *ui;
 public slots:
@@ -708,6 +709,8 @@ public slots:
     void TerminateSession();
     void ControlSession();
     void errorprocess();
+    void readprocess();
+    void whatprocess();
 };
 
 #endif // MAINWINDOW_H
