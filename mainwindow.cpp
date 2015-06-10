@@ -102,17 +102,15 @@ void MainWindow::ControlSession()
     int i=0;
     arg <<DisplayId<<UserName;
     connectuser->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
-    readprocess();
-    //connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess(int)));
+    qDebug()<<connectuser->readAll();
+    //readprocess();
+    connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess()));
 
 }
 void MainWindow::readprocess()
 {
-
     waituser->start(1000);
     connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
-
-
 }
 void MainWindow::whatprocess()
 {
@@ -122,6 +120,7 @@ void MainWindow::whatprocess()
 
 void MainWindow::errorprocess()
 {
+    qDebug()<<connectuser->readAll();
     qDebug()<<"Finish";
     QProcess * vncstart = new QProcess();
     Status = connectuser->readAll();
