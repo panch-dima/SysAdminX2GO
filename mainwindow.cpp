@@ -99,28 +99,28 @@ void MainWindow::TerminateSession()
 void MainWindow::ControlSession()
 {
     QProcess * setdisplay = new QProcess();
-    //QProcess * startcontrol = new QProcess();
-    //QProcess * vncstart = new QProcess();
+
+
     QStringList arg;
     arg <<DisplayId<<UserName;
     setdisplay->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
 
     connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
     qDebug()<<"start"<<arg;
-    //startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
-    //qDebug()<<startcontrol->readAll();
-    //QString status = startcontrol->readAll();
-    //if(status=="ready")
-    //{
-    //setdisplay->start("DISPLAY=:0");
-    //vncstart->start("vncviewer 127.0.0.1:5900");
-    //}
-    //else
-    //{
-    //    qDebug()<<"error start x11vnc";
-    //}
+
+
 }
 void MainWindow::errorprocess(int ErrorCode)
 {
+    QProcess * vncstart = new QProcess();
     qDebug()<<"Finish"<<ErrorCode;
+    if(status=="ready")
+    {
+    //setdisplay->start("DISPLAY=:0");
+    vncstart->start("vncviewer 127.0.0.1:5900");
+    }
+    else
+    {
+        qDebug()<<"error start x11vnc";
+    }
 }
