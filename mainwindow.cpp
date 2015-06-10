@@ -103,10 +103,10 @@ void MainWindow::ControlSession()
     //QProcess * vncstart = new QProcess();
     QStringList arg;
     arg <<DisplayId<<UserName;
-    setdisplay->start("startcli.sh",arg);
+    setdisplay->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
 
     connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess(int)));
-    qDebug()<<"start";
+    qDebug()<<"start"<<arg;
     //startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
     //qDebug()<<startcontrol->readAll();
     //QString status = startcontrol->readAll();
