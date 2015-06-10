@@ -29,7 +29,6 @@ void MainWindow::vo_proc()
 {
     ui->pushButton_RC->setEnabled(false);
     ui->pushButton_VO->setEnabled(false);
-
     QProcess * vo = new QProcess();
     QStringList arg;
     arg << "-viewonly -localhost";

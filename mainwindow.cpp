@@ -99,10 +99,24 @@ void MainWindow::TerminateSession()
 void MainWindow::ControlSession()
 {
     QStringList arg;
+    int i=0;
     arg <<DisplayId<<UserName;
     connectuser->start("/home/dima/SysAdminX2GO/startcli.sh",arg);
-    connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess(int)));
-
+    //connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess(int)));
+    QTimer * waituser;
+    while(i<=30)
+    {
+        waituser->start(1000);
+        qDebug()<<connectuser->readAll();
+        if(connectuser->readAll()=="ready")
+        {
+            errorprocess();
+        }
+        else
+        {
+            continue;
+        }
+    }
 }
 void MainWindow::errorprocess(int ErrorCode)
 {

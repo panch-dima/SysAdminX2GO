@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QProcess>
 #include <QDebug>
+#include <QTimer>
 /*                    GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 

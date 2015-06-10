@@ -24,6 +24,7 @@ public slots:
     void rc_proc();
     void vo_proc();
 
+
 };
 
 #endif // MAINWINDOW_H
