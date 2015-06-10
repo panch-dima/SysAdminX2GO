@@ -122,9 +122,9 @@ void MainWindow::errorprocess()
 {
     qDebug()<<connectuser->readAll();
     qDebug()<<"Finish";
-    QProcess * vncstart = new QProcess();
+    //QProcess * vncstart = new QProcess();
     Status = connectuser->readAll();
     qDebug()<<Status;
-    vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
-    Status="";
+    //vncstart->start("/home/dima/SysAdminX2GO/startvncv.sh");
+    //Status="";
 }
