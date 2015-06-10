@@ -114,7 +114,7 @@ void MainWindow::readprocess()
 }
 void MainWindow::whatprocess()
 {
-    qDebug()<<connectuser->read();
+    qDebug()<<connectuser->readAll();
     if (timeri==60)
     {
         errorprocess();
