@@ -104,8 +104,8 @@ void MainWindow::ControlSession()
     QProcess * startcontrol = new QProcess();
     QProcess * vncstart = new QProcess();
     QStringList arg;
-    arg << DisplayId<<" su "<<UserName<<" -c /home/dima/SysAdminX2GO/usercontrol/usercontrol";
-    setdisplay->start("DISPLAY=:",arg);
+    arg <<"DISPLAY=:"<< DisplayId<<" su "<<UserName<<" -c /home/dima/SysAdminX2GO/usercontrol/usercontrol";
+    setdisplay->start(arg);
     connect(setdisplay,SIGNAL(finished(int)),SLOT(errorprocess()));
     qDebug()<<"start";
     //startcontrol->start("su"+UserName+"-c /home/dima/SysAdminX2GO/usercontrol/usercontrol");
