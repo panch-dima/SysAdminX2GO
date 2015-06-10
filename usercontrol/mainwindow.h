@@ -23,7 +23,7 @@ private:
 public slots:
     void rc_proc();
     void vo_proc();
-
+    void state();
 
 
 };

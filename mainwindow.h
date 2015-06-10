@@ -710,8 +710,7 @@ public slots:
     void TerminateSession();
     void ControlSession();
     void errorprocess();
-    void readprocess();
-    void whatprocess();
+
 };
 
 #endif // MAINWINDOW_H

@@ -107,16 +107,7 @@ void MainWindow::ControlSession()
     connect(connectuser,SIGNAL(finished(int)),SLOT(errorprocess()));
 
 }
-void MainWindow::readprocess()
-{
-    waituser->start(1000);
-    connect(waituser,SIGNAL(timeout()),SLOT(whatprocess()));
-}
-void MainWindow::whatprocess()
-{
-    qDebug()<<connectuser->readAll();
 
-}
 
 void MainWindow::errorprocess()
 {
